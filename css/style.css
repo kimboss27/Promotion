@@ -1,0 +1,1481 @@
+@charset "utf-8";
+@import url("default.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body,html {
+    font-size: 16px;
+    font-family: serif;
+    font-family: "Noto Sans KR'", sans-serif;
+    background: #000;
+    color: #fff;
+    
+}
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+a {
+    color: #fff;
+}
+
+video {
+    display: block;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@-ms-keyframes spin {
+    0% {
+        -ms-transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        -ms-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        -o-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.loading_bg {
+    /* -- 로딩배경 -- */
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    left: 0;
+    top: 0;
+    z-index: 900;
+}
+
+.loading_bg p {
+    /* -- 로딩중 문구 -- */
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 9999;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.loading {
+    /*-- 로딩 아이콘 --*/
+    background: url("../images/desktop/spinlogo.png") no-repeat;
+    background-size: contain;
+    width: 120px;
+    height: 120px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    -ms-animation: spin 2s linear infinite;
+    -o-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+/* -- header -- */
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h1 {
+    width: 276px;
+    height: 25px;
+}
+
+#header h1 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../images/desktop/logoW.svg") no-repeat;
+    text-indent: -99999px;
+    background-size: contain;
+}
+
+#header #btn {
+    width: 50px;
+    height: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+
+#header #btn span {
+    background: #fff;
+    display: block;
+    width: 50px;
+    height: 2px;
+    transition: all 0.3s;
+}
+
+#header #btn.active .bar1 {
+    transform: translate(0px, 6px) rotate(45deg)
+}
+
+#header #btn.active .bar2 {
+    transform: translate(0px, -7px) rotate(-45deg);
+}
+
+/* -- menu -- */
+.menu_wrap {
+    position: fixed;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_wrap.on {
+    top: 0;
+}
+
+.menu_wrap .menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.menu_wrap .menu>ul{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 80px;
+}
+.menu_wrap .menu>ul>li {
+    float: left;
+    text-align: center;
+}
+
+.menu_wrap .menu ul>li>a {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.menu_wrap .menu ul>li>.sub {
+    margin-top: 30px;
+}
+
+.menu_wrap .menu ul>li>.sub li {
+    width: 100%;
+    padding: 0;
+    clear: both;
+
+}
+
+.menu_wrap .menu ul>li>.sub li>a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* -- main slider -- */
+
+#section1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#section1 video {
+    width: 100%;
+    height: auto;
+}
+
+#section1 img {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+}
+.swiper-button-next, .swiper-button-prev {
+    width: auto;
+    height: auto; 
+    margin-top: auto;   
+}
+.swiper-button-next {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5%;
+    background: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.swiper-button-next::after{
+    content: '';
+}
+.swiper-button-prev {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    background: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.swiper-button-prev::after{
+    content: '';  
+}
+.swiper-horizontal>.swiper-pagination-bullets, 
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 10%;
+}
+.swiper-pagination-bullet {
+    background: none;
+    font-size: 1.8rem;
+    opacity: 1;
+    color: #999;
+}
+.swiper-pagination-bullet-active{
+    color: #fff;
+    font-weight: 700;
+    opacity: 1;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0px 20px;
+}
+.swiper-pagination-bullet-active {
+    background: none;
+}
+
+/* -- about -- */
+#section2 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    background: #151515;
+}
+
+#section2 .left {
+    width: 50%;
+    height: auto;
+    transition: all 0.2s;
+}
+
+#section2 .left video {
+    width: 100%;
+    height: auto;
+}
+
+#section2 .right {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+#section2 .right h2 {
+    width: 276px;
+    height: 25px;
+    background: url("../images/desktop/logoW.svg") no-repeat;
+    text-indent: -99999px;
+    margin: 0 auto 40px;
+}
+
+#section2 .right p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #999;
+    line-height: 1.4em;
+    font-size: 1.4rem;
+}
+
+#section2 .right p strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+#section2 .right p.p3 {
+    margin-bottom: 0;
+}
+
+/* -- padding -- */
+@keyframes boxborder1 {
+    0% {
+        border: 0px none;
+    }
+
+    50% {
+        border: 20px solid #0200c3;
+    }
+
+    100% {
+        border: 0px none;
+    }
+
+}
+
+#section3 {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/desktop/paddingbg.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+
+
+#section3 h2 {
+    width: 276px;
+    height: 25px;
+    background: url("../images/desktop/logoW.svg") no-repeat;
+    text-indent: -99999px;
+    margin-top: 50px;
+    margin-left: 40px;
+    transition: all 0.2s;
+}
+
+#section3 .txt {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 10;
+}
+#section3 .txt strong {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+#section3 .txt h3 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+#section3 .txt p {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #999;    
+}
+#section3 .txt p span {
+    display: block;
+    margin-bottom: 5px; 
+}
+#section3 .txt .detail {
+    list-style: disc;
+    margin-left: 20px;
+}
+#section3 .txt .detail li {
+    font-size: 1.4rem;
+    float: left;
+    margin-bottom: 20px; 
+}
+#section3 .txt a {
+    display: block;
+    clear: both;
+    font-size: 2rem;
+}
+#section3 .txt .detail li:first-child {
+    margin-right: 30px;
+}
+#section3 .imgbox {
+    max-width: 534px;
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+}
+#section3 .imgbox img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    right: -300px;
+    opacity: 0;
+}
+
+#section3 .bar div {
+    background: #199973;
+    position: absolute;
+}
+
+#section3 .bar .left {
+    width: 30px;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#section3 .bar .right {
+    width: 30px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+#section3 .bar .top {
+    width: 100%;
+    height: 30px;
+    top: 0;
+    left: 0;
+}
+
+#section3 .bar .bottom {
+    width: 100%;
+    height: 30px;
+    left: 0;
+    bottom: 0;
+}
+#section3 .bar.on div {
+    transition: all 0.4s;   
+    transition-delay: 0.2s;
+}
+#section3 .bar.on .left {
+    left: -30px;
+}
+
+#section3 .bar.on .right {
+    right: -30px;
+}
+
+#section3 .bar.on .top {
+    top: -30px;
+}
+
+#section3 .bar.on .bottom {
+    bottom: -30px;
+}
+/* ---section3 transition -- */
+#section3 .txt .t1{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section3 .txt.on .t1{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.2s;
+}
+#section3 .txt .t2{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section3 .txt.on .t2{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.4s;
+}
+#section3 .txt .t3{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section3 .txt.on .t3{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.6s;
+}
+#section3 .txt .t4{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section3 .txt.on .t4{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.8s;
+}
+#section3 .txt .t5{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section3 .txt.on .t5{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 1s;
+}
+#section3 .imgbox.on img {
+    right: 0;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+    transition-delay: 0.4s;
+}
+
+/* -- knit -- */
+#section4 {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/desktop/knitbg.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+#section4 h2 {
+    width: 276px;
+    height: 25px;
+    background: url("../images/desktop/logoW.svg") no-repeat;
+    text-indent: -99999px;
+    margin-top: 50px;
+    margin-left: 40px;
+    transition: all 0.2s;
+}
+
+#section4 .txt {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end   ;
+}
+#section4 .txt strong {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 5px; 
+}
+#section4 .txt h3 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+#section4 .txt h3 span {
+    display: block;
+}
+#section4 .txt p {
+    font-size: 1.4rem;
+    margin-bottom: 15px; 
+    text-align: right;  
+    color: #999; 
+}
+#section4 .txt p span {
+    display: block;
+    margin-bottom: 5px; 
+}
+#section4 .txt .detail {
+    list-style: disc;
+}
+#section4 .txt .detail li {
+    font-size: 1.4rem;
+    float: left;
+    margin-bottom: 20px; 
+}
+#section4 .txt a {
+    display: block;
+    clear: both;
+    font-size: 2rem;
+}
+#section4 .txt .detail li:first-child {
+    margin-right: 30px;
+}
+#section4 .imgbox {
+    max-width: 504px;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+}
+#section4 .imgbox img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: -300px;
+    opacity: 0;
+}
+
+#section4 .bar div {
+    background: #0200c3;
+    position: absolute;
+}
+
+#section4 .bar .left {
+    width: 30px;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#section4 .bar .right {
+    width: 30px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+#section4 .bar .top {
+    width: 100%;
+    height: 30px;
+    top: 0;
+    left: 0;
+}
+
+#section4 .bar .bottom {
+    width: 100%;
+    height: 30px;
+    left: 0;
+    bottom: 0;
+}
+#section4 .bar.on div {
+    transition: all 0.4s;   
+    transition-delay: 0.2s;
+}
+#section4 .bar.on .left {
+    left: -30px;
+}
+
+#section4 .bar.on .right {
+    right: -30px;
+}
+
+#section4 .bar.on .top {
+    top: -30px;
+}
+
+#section4 .bar.on .bottom {
+    bottom: -30px;
+}
+/* -- section4 transition -- */
+#section4 .txt .t1{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section4 .txt.on .t1{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.2s;
+}
+#section4 .txt .t2{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section4 .txt.on .t2{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.4s;
+}
+#section4 .txt .t3{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section4 .txt.on .t3{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.6s;
+}
+#section4 .txt .t4{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section4 .txt.on .t4{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 0.8s;
+}
+#section4 .txt .t5{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+#section4 .txt.on .t5{
+    top: 0px;
+    opacity: 1;
+    transition: all 0.4s linear;
+    transition-delay: 1s;
+}
+#section4 .imgbox.on img {
+    left: 0;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+    transition-delay: 0.4s;
+}
+/* -- collection --*/
+#section5 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+#section5>div {
+    width: 50%;
+    float: left;
+}
+
+#section5 video {
+    width: 100%;
+    height: auto;
+}
+
+/* -- editory -- */
+#section6 {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/desktop/editory.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+#section6 .txt {
+    position: absolute;
+    left: 50%;
+    top: 51%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 1s;
+}
+
+#section6 .txt.on {
+    opacity: 1;
+    top: 50%;
+}
+
+#section6 .txt strong {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    transition: all 0.2s;
+}
+
+#section6 .txt a {
+    display: block;
+    width: 280px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #ccc;
+    transition: all 0.5s;
+}
+
+#section6 .txt a:hover {
+    border-color: #fff;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* -- footer -- */
+#footer {
+    width: 100%;
+    height: auto;
+}
+
+#footer .top {
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #999;
+}
+
+#footer .top h2 {
+    width: 276px;
+    height: 25px;
+}
+
+#footer .top h2 a {
+    display: block;
+    width: 276px;
+    height: 25px;
+    background: url("../images/desktop/logoW.svg") no-repeat;
+    text-indent: -99999px;
+}
+
+#footer .top .youtube {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("../images/desktop/youtube.svg") no-repeat;
+    background-size: contain;
+    text-indent: -99999px;
+    margin-right: 15px;
+}
+
+#footer .top .insta {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("../images/desktop/instagrma.svg") no-repeat;
+    background-size: contain;
+    text-indent: -99999px;
+}
+
+#footer .bottom {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* -- media query -- */
+@media screen and (min-width:641px) {
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
+}
+@media screen and (max-width:1440px) and (min-width:1025px) {
+    body,html {
+        font-size: 13px;
+    }
+    #section3 .imgbox.on {
+       max-width: 430px;
+    }
+   
+    #section4>.imgbox.on {
+        max-width: 430px;
+    }
+   
+
+    #section6 .txt strong {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    #section6 .txt a {
+        width: 230px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:641px) {
+    body, html {
+        font-size: 12px;
+    }
+    #header h1 {
+        width: 160px;
+
+        height: 15px;
+    }
+    #section2 {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+ 
+    #section2 .left {
+        width: 100%;
+        height: auto;
+    }
+    .menu_wrap .menu>ul {
+        gap: 50px;
+    }
+    #section2 .left video {
+        width: 100%;
+        height: auto;
+    }
+
+    #section2 .right {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        padding: 100px 0;
+    }
+    #section2 .right p {
+        font-size: 1.6rem;  
+    }
+    #section2 .right p strong {
+        color: #fff;
+        font-weight: 500;
+    }
+
+    #section2 .right p.p3 {
+        margin-bottom: 0;
+    }
+    #section3 .txt {
+        width: 100%;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }   
+    #section3 .txt p {
+        text-align: center;
+    }
+    #section3 .imgbox {
+        position: absolute;
+        top: 18%;
+        right: 50%;
+        transform: translateX(50%);
+        max-width: 450px;
+    }
+    #section4 .txt {
+        width: 100%;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+    }   
+    #section4 .txt h3 {
+        text-align: center;
+    }
+    #section4 .txt p {
+        text-align: center;
+    }
+    #section4 .imgbox {
+        max-width: 450px;
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    #section6 .txt strong {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    #section6 .txt a {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+
+    #footer .top {
+        padding: 20px 20px;
+    }
+
+    #footer .top h2 {
+        width: 166px;
+        height: 15px;
+    }
+
+    #footer .top h2 a {
+        display: block;
+        width: 166px;
+        height: 15px;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+    }
+
+    #footer .top .sns {
+        display: flex;
+        align-items: center;
+    }
+
+    #footer .top .youtube {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url("../images/desktop/youtube.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+        margin-right: 10px;
+    }
+
+    #footer .top .insta {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url("../images/desktop/instagrma.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+    }
+
+    #footer .bottom {
+        padding: 20px 20px;
+    }
+
+    #footer .bottom p {
+        font-size: 12px;
+    }
+
+    #footer .bottom a {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .desktop {
+        display: none;
+    }
+    .moblie {
+        display: block;
+    }
+    body,html {
+        font-size: 9px;
+    }
+    .mobilehide {
+        display: none;
+    }
+
+    #header {
+        padding: 20px;
+    }
+
+    #header h1 {
+        width: 120px;
+        height: 11px;
+    }
+
+    #header h1 a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+    }
+
+    #header #btn {
+        width: 25px;
+        height: 8px;
+    }
+
+    #header #btn span {
+        background: #fff;
+        display: block;
+        width: 25px;
+        height: 1px;
+    }
+
+    #header #btn.active .bar1 {
+        transform: translate(0px, 4px) rotate(45deg)
+    }
+
+    #header #btn.active .bar2 {
+        transform: translate(0px, -3px) rotate(-45deg);
+    }
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0px 15px;
+}
+    .menu_wrap .menu>ul {
+        gap: 20px
+    }
+    .menu_wrap .menu ul>li>a {
+        font-size: 1.6rem;
+    }
+    .menu_wrap .menu ul>li>.sub {
+        margin-top: 15px;
+    }
+    .menu_wrap .menu ul>li>.sub li>a {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    #section1 .pagenum li a {
+        font-size: 14px;
+    }
+
+    #section1 .pagenate a {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    #section1 .pagenate .prev::before {
+        height: 1px;
+    }
+
+    #section1 .pagenate .next::before {
+        height: 1px;
+    }
+
+    #section1 .pagenum li {
+        float: left;
+        padding: 0 8px;
+    }
+
+    #section2 {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    #section2 .left {
+        width: 100%;
+        height: auto;
+    }
+
+    #section2 .left video {
+        width: 100%;
+        height: auto;
+    }
+
+    #section2 .right {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        padding: 40px 0;
+    }
+
+    #section2 .right h2 {
+        width: 200px;
+        height: 19px;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        margin: 0 auto 20px;
+    }
+
+    #section2 .right p {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
+    #section3 h2 {
+        width: 180px;
+        height: 17px;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    #section3 .txt {
+        width: 100%;
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    #section3 .txt h3 {
+        text-align: center;
+        margin-bottom: 10px;    
+    }
+    #section3 .txt h3 span {
+        display: block;
+    }
+    #section3 .txt p {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    #section3 .txt .detail li {
+        margin-bottom: 10px;
+    }
+    #section3 .imgbox {
+        width: 270px;   
+        position: absolute;
+        top: 15%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+
+    #section3 .bar .left {
+        width: 15px;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    #section3 .bar .right {
+        width: 15px;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
+
+    #section3 .bar .top {
+        width: 100%;
+        height: 15px;
+        top: 0;
+        left: 0;
+    }
+
+    #section3 .bar .bottom {
+        width: 100%;
+        height: 15px;
+        left: 0;
+        bottom: 0;
+    }
+
+    #section3 .bar.on .left {
+        left: -15px;
+    }
+
+    #section3 .bar.on .right {
+        right: -15px;
+    }
+
+    #section3 .bar.on .top {
+        top: -15px;
+    }
+
+    #section3 .bar.on .bottom {
+        bottom: -15px;
+    }
+
+    #section4 h2 {
+        width: 180px;
+        height: 17px;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    #section4 .txt {
+        width: 100%;
+        position: absolute;
+        top: 58%;
+        right: 50%;
+        transform: translateX(50%);
+        overflow: hidden;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    #section4 .txt h3 {
+        text-align: center;
+        margin-bottom: 10px;    
+    }
+    #section4 .txt h3 span {
+        display: block;
+    }
+    #section4 .txt p {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    #section4 .txt .detail li {
+        margin-bottom: 10px;
+    }
+    #section4 .imgbox {
+        width: 270px;   
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #section4 .bar .left {
+        width: 15px;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    #section4 .bar .right {
+        width: 15px;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
+
+    #section4 .bar .top {
+        width: 100%;
+        height: 15px;
+        top: 0;
+        left: 0;
+    }
+
+    #section4 .bar .bottom {
+        width: 100%;
+        height: 15px;
+        left: 0;
+        bottom: 0;
+    }
+
+    #section4 .bar.on .left {
+        left: -15px;
+    }
+
+    #section4 .bar.on .right {
+        right: -15px;
+    }
+
+    #section4 .bar.on .top {
+        top: -15px;
+    }
+
+    #section4 .bar.on .bottom {
+        bottom: -15px;
+    }
+    #section5>div {
+        width: 100%;
+        clear: left;
+    }
+    
+    #section5 video {
+        width: 100%;
+        height: auto;
+    }
+    #section6 .txt strong {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    #section6 .txt a {
+        width: 160px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+    }
+
+    #footer .top {
+        padding: 15px 10px;
+    }
+
+    #footer .top h2 {
+        width: 100px;
+        height: 10px;
+    }
+
+    #footer .top h2 a {
+        display: block;
+        width: 100px;
+        height: 10px;
+        background: url("../images/desktop/logoW.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+    }
+
+    #footer .top .sns {
+        display: flex;
+        align-items: center;
+    }
+
+    #footer .top .youtube {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url("../images/desktop/youtube.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+        margin-right: 5px;
+    }
+
+    #footer .top .insta {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url("../images/desktop/instagrma.svg") no-repeat;
+        background-size: contain;
+        text-indent: -99999px;
+    }
+
+    #footer .bottom {
+        padding: 15px 10px;
+    }
+
+    #footer .bottom p {
+        font-size: 10px;
+    }
+
+    #footer .bottom a {
+        font-size: 10px;
+    }
+}
