@@ -139,6 +139,8 @@ video {
 #header h1 {
     width: 276px;
     height: 25px;
+    position: relative;
+    z-index: 1000;
 }
 
 #header h1 a {
