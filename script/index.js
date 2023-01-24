@@ -167,4 +167,7 @@
     sec4img.addEventListener('mouseenter',imgChnage3);
     sec4img.addEventListener('mouseleave',imgChnage4);
 
-
+const video=document.querySelectorAll('video');
+for(let v=0; v<video.length; v++){
+    video[v].play();
+}
