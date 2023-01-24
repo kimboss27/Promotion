@@ -44,19 +44,16 @@
     const next=document.querySelector('#section1 .swiper-button-next');
     const menuBtn=document.querySelector('#btn');
     const menu=document.querySelector('.menu_wrap');
-    
+    let num=document.querySelectorAll('#section1 .swiper-pagination-bullet');
+    let active=document.querySelector('#section1 .swiper-pagination-bullet-active');
     for(let t=0; t<slides.length; t++){
         slides[t].addEventListener('transitionstart',chk3);
     }
     function chk3(){
-        let num=document.querySelectorAll('#section1 .swiper-pagination-bullet');
-        let active=document.querySelector('#section1 .swiper-pagination-bullet-active');
-        let menuBtn=document.querySelector('#btn');
-        let menu=document.querySelector('.menu_wrap');
         if(slide3.classList.contains('swiper-slide-duplicate-active') || slide3.classList.contains('swiper-slide-active')){
             prev.style.color='#000';
             next.style.color='#000';
-            logo.style.filter='invert(100)';
+            logo.classList.add('on');
             for(let i=0; i<btn.length; i++){
                 btn[i].style.background='#000';
             }
@@ -67,7 +64,7 @@
         }else if(!slide3.classList.contains('swiper-slide-duplicate-active') || !slide3.classList.contains('swiper-slide-active')){
             prev.style.color='#fff';
             next.style.color='#fff';
-            logo.style.filter='invert(0)';
+            logo.classList.remove('on');
             for(let i=0; i<btn.length; i++){
                 btn[i].style.background='#fff';
             }
