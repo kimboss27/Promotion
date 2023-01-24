@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
     /* -- a태그 화면 올라감 방지 -- 
     const click=document.querySelectorAll('a');
     for(let k=0; k<click.length; k++){
@@ -167,7 +167,9 @@ $(document).ready(function(){
     }
     sec4img.addEventListener('mouseenter',imgChnage3);
     sec4img.addEventListener('mouseleave',imgChnage4);
-});
 
-
+const video=document.querySelectorAll('video');
+for(let v=0; v<video.length; v++){
+    video[v].play();
+}
 
