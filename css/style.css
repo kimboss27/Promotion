@@ -196,7 +196,7 @@ video {
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
     transition: all 0.4s;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
