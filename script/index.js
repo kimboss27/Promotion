@@ -92,7 +92,6 @@
     menuBtn.addEventListener('click',function(){
         this.classList.toggle('active');
         menu.classList.toggle('on');
-        console.log(menuBtn);
     });
     
     
