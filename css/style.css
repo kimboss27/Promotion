@@ -311,7 +311,7 @@ video {
 }
 .swiper-horizontal>.swiper-pagination-bullets, 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: 20%;
+    bottom: 10%;
 }
 .swiper-pagination-bullet {
     background: none;
@@ -1165,6 +1165,10 @@ video {
     .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0px 15px;
+}
+.swiper-horizontal>.swiper-pagination-bullets, 
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20%;
 }
     .menu_wrap .menu>ul {
         gap: 20px
