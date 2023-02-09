@@ -31,8 +31,7 @@ const swiper = new Swiper('.swiper', {
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-    },
-
+    }
 });
 
 /* -- slide3 색 반전 --*/
